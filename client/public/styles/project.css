@@ -1,0 +1,294 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #d9d9d9;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #bbbbbb;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.active {
+  color: white;
+}
+
+.content {
+  padding: 20px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  
+}
+
+.image-list {
+  margin-top: 20px;
+}
+
+.image-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.image-list-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+/*
+.sort-button {
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+*/
+.image-grid {
+  display: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.label-container {
+  margin-bottom: 20px;
+  flex-flow: column;
+}
+
+.label-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.label-list-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
+}
+
+.label-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.label-item:hover {
+  background-color: #f0f0f0;
+}
+
+.image-grid-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.image-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+.image-card:hover .image-name {
+  display: block;
+}
+
+.upload-button {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.upload-button:hover {
+  background-color: #e0e0e0;
+}
+
+.upload-button::after {
+  content: "Add Images";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+.upload-button:hover::after {
+  display: block;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
+
+.image-card:hover .delete-button {
+  display: block;
+}
+
+.label-delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #bbbbbb;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* アクティブなリンクのスタイル */
+.active {
+  color: white;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  width: 150px;
+  background-color: #efefef;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.menu ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+.menu ul li:hover {
+  background-color: #d0d0d0;
+}
+
+.menu ul hr {
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+/* サブメニューのスタイル */
+.submenu {
+  display: none;
+  position: absolute;
+  left: 150px;
+  top: 0;
+  background-color: #e0e0e0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.submenu li:hover {
+  background-color: #d0d0d0;
+}
+
+.info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
